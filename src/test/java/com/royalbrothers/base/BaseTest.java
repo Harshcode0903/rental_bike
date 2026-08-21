@@ -1,0 +1,18 @@
+package com.royalbrothers.base;
+
+import com.royalbrothers.factory.DriverFactory;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+public class BaseTest {
+
+    @BeforeMethod(alwaysRun = true)
+    public void setUp() throws Exception {
+        DriverFactory.initDriver();
+    }
+
+    @AfterMethod(alwaysRun = true)
+    public void tearDown() {
+        DriverFactory.quitDriver();
+    }
+}
